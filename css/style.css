@@ -1,0 +1,442 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GLOBAIS E FONTES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333;
+    color: #f4f4f4;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   ESTILOS DA PÁGINA INICIAL (index.html)
+   ========================================================================== */
+
+/* --- Cabeçalho e Navegação --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para o link do logo */
+.logo {
+    display: flex; /* Ajuda no alinhamento vertical */
+    align-items: center;
+}
+
+/* Estilo para a IMAGEM do logo */
+.logo img {
+    height: 40px; /* Você pode ajustar essa altura como preferir */
+    width: auto;  /* A largura se ajustará automaticamente */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #f4f4f4;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+/* --- Imagem Principal (Hero) --- */
+.hero-image {
+    height: 400px;
+    background-image: url('../images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* --- Caixa de Texto de Boas-vindas --- */
+.welcome-text {
+    background-color: #222;
+    padding: 2rem;
+    margin: -50px 10% 2rem 10%;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    z-index: 10;
+}
+
+.welcome-text h1 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.welcome-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Botão de Chamada para Ação (CTA) --- */
+.cta-button {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d4af37;
+    color: #222;
+    transform: scale(1.05);
+}
+
+.cta-button .arrow {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   ESTILOS DA PÁGINA DO QUIZ (quiz.html)
+   ========================================================================== */
+
+.quiz-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #2c2c2c;
+    border-radius: 8px;
+}
+
+.quiz-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.question-block {
+    margin-bottom: 2rem;
+}
+
+.question-block h2 {
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #f0f0f0;
+}
+
+.options-list {
+    list-style: none;
+}
+
+.options-list li {
+    background-color: #3a3a3a;
+    margin-bottom: 0.75rem;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+.options-list li:hover {
+    background-color: #4a4a4a;
+    transform: scale(1.03);
+}
+
+/* --- Estilo Corrigido e Animado para as Opções do Quiz --- */
+
+/* A label continua sendo nosso "botão" clicável */
+.options-list label {
+    display: block;
+    padding: 1rem 1rem 1rem 50px;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+}
+
+/* O input original continua escondido */
+.options-list input[type="radio"] {
+    display: none;
+}
+
+/* A CIRCUNFERÊNCIA EXTERNA (o anel) */
+.options-list label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* O CÍRCULO INTERNO (o ponto que vai aparecer) */
+.options-list label::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    opacity: 0;
+    transform: translateY(-50%) scale(0);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: absolute;
+    left: 21px;
+    top: 50%;
+}
+
+/* O QUE ACONTECE QUANDO A OPÇÃO É SELECIONADA */
+.options-list input[type="radio"]:checked + label::after {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+/* --- Botão de Navegação do Quiz (Versão Aprimorada) --- */
+.navigation-buttons {
+    display: flex;
+    justify-content: flex-end; /* Corrigido para alinhar à direita */
+    margin-top: 2rem;
+}
+
+.arrow-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.arrow-button:hover {
+    background-color: #d4af37;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-button svg {
+    stroke: #333;
+    transition: transform 0.3s ease;
+}
+
+.arrow-button:hover svg {
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   ESTILOS DA PÁGINA DE RESULTADOS (resultados.html) - REVISADO E APRIMORADO
+   ========================================================================== */
+
+/* Garante que o container principal ocupe a tela e centralize o conteúdo */
+.results-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Remove margem superior/inferior para controlar o espaço */
+    padding: 2rem;
+    text-align: center;
+    display: flex; /* Usando flexbox para centralizar verticalmente */
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - 80px); /* Ocupa 100% da altura da tela, descontando o header */
+}
+
+.results-container h1 {
+    margin-bottom: 2rem; /* Espaçamento menor */
+    font-size: 2rem;
+    font-weight: 700;
+    color: #d4af37;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.perfume-card {
+    background-color: #222;
+    border-radius: 12px;
+    padding: 1.5rem; /* Padding menor */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perfume-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    background-color: #2c2c2c;
+}
+
+.perfume-card img {
+    width: 150px; /* Largura fixa menor */
+    height: 150px; /* Altura fixa menor */
+    object-fit: contain;
+    margin-bottom: 1rem; /* Margem menor */
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+    border-radius: 10px; /* << SUA BORDA ARREDONDADA AQUI */
+}
+
+.perfume-card .perfume-info {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.perfume-card h3 {
+    font-size: 1.2rem; /* Fonte menor */
+    margin-bottom: 0.2rem;
+    color: #f0f0f0;
+    font-weight: 700;
+}
+
+.perfume-card .brand {
+    font-size: 0.9rem; /* Fonte menor */
+    color: #d4af37;
+    margin-bottom: 0.8rem;
+    font-weight: 400;
+}
+
+.perfume-card .description {
+    font-size: 0.85rem; /* Fonte menor */
+    line-height: 1.5;
+    color: #bbb;
+    margin-bottom: 1rem;
+    min-height: auto; /* Altura automática */
+}
+
+.perfume-card .notes-detail {
+    text-align: left;
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.perfume-card .notes-detail h4 {
+    font-weight: bold;
+    color: #f0f0f0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.8rem;
+}
+
+.perfume-card .notes-detail ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.perfume-card .notes-detail li {
+    color: #ccc;
+    font-size: 0.8rem; /* Fonte menor */
+    line-height: 1.4;
+    margin-bottom: 0.2rem;
+    background-color: transparent;
+    border-radius: 0;
+    transition: none;
+    transform: none;
+}
+
+.perfume-card .notes-detail li strong {
+    color: #f4f4f4;
+    font-weight: 600;
+}
+
+.view-details-btn {
+    display: inline-block;
+    background-color: #d4af37;
+    color: #222;
+    padding: 0.7rem 1.5rem; /* Botão menor */
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem; /* Fonte menor */
+    margin-top: auto;
+    transition: all 0.3s ease;
+    cursor: pointer; /* Garante que o cursor seja de clique */
+}
+
+.view-details-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    transform: scale(1.05);
+}
+/* ==========================================================================
+   ESTILOS DO MODAL DE DETALHES
+   ========================================================================== */
+.hidden {
+    display: none; /* Classe que esconde os elementos */
+}
+
+#modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+#perfume-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    background-color: #2c2c2c;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    padding: 2rem;
+}
+
+#close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
