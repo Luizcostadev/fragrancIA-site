@@ -441,3 +441,97 @@ body {
     font-size: 2.5rem;
     cursor: pointer;
 }
+
+
+
+/* ==========================================================================
+   ESTILOS DA PÁGINA DE login (sobre.html)
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+}
+
+/* Caixa centralizada do formulário */
+form {
+  background: rgb(122, 122, 122);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Título */
+form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+/* Labels e inputs */
+label {
+  font-size: 14px;
+  color: #000000;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #f3f3f3;
+}
+
+/* Botões */
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+button[type="submit"] {
+  background: #f3f3f3;
+  color: rgb(0, 0, 0);
+}
+
+button[type="submit"]:hover {
+  background: #55a7ff;
+}
+
+button[type="button"] {
+  background: #f3f3f3;
+  color: #000000;
+}
+
+button[type="button"]:hover {
+  background: #55a7ff;
+}
+
+/* Texto extra */
+p {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
