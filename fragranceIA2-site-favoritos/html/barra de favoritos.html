@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barra de Favoritos - Teste</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+
+  <div class="fav-bar" role="navigation" aria-label="Barra de favoritos">
+    <div class="fav-list" id="favList" aria-live="polite"></div>
+
+    <div class="fav-controls">
+      <div class="search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <path d="M21 21l-4.35-4.35M10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input id="favSearch" placeholder="Pesquisar" />
+      </div>
+
+ <nav class="navbar">
+            <div class="logo.png">Fragrancia</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="#">Guias</a></li>
+                <li><a href="#">Favoritos</a></li>
+                <li><a href="#">Usuário</a></li>
+            </ul>
+        </nav>
+
+
+      <button class="btn" id="importBtn">Import</button>
+      <button class="btn primary" id="addBtn">+ Favorito</button>
+    </div>
+  </div>
+
+  <main style="padding: 120px 24px;">
+    <h1>Teste da Barra de Favoritos</h1>
+    <p>Abra com Live Server para testar.</p>
+  </main>
+
+  <template id="favTpl">
+    <div class="fav-item" draggable="true">
+      <div class="icon">F</div>
+      <div class="label">Fav</div>
+      <button class="btn remove-btn" title="Remover">X</button>
+    </div>
+  </template>
+
+  <script src="../js/favorites.js" defer></script>
+</body>
+</html>
